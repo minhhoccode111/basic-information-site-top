@@ -1,0 +1,29 @@
+{
+  "name": "basic-information-site-top",
+  "version": "1.0.0",
+  "description": "Basic Information Site The Odin Project",
+  "main": "src/index.js",
+  "dependencies": {
+    "bun-types": "^1.0.18",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhhoccode111/basic-information-site-top.git"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "npm"
+  ],
+  "author": "minhhoccode111",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhhoccode111/basic-information-site-top/issues"
+  },
+  "homepage": "https://github.com/minhhoccode111/basic-information-site-top#readme"
+}
