@@ -12,24 +12,27 @@ The **Basic Information Site** application is created according to the assignmen
 
 - Used **Node.js**
 - Used **Express**
-- Used **Heroku**
 - Learned how to setup a server
 - Learned how to display different pages according to current url
 
 ## **Getting Started**
 
+HTTPS
+
+```bash
+git clone https://github.com/minhhoccode111/basic-information-site-top.git/
 ```
-HTTPS - $ git clone https://github.com/minhhoccode111/basic-information-site-top.git/
-or
-SSH - $ git clone git@github.com:minhhoccode111/basic-information-site-top.git/
 
-$ cd basic-information-site-top
+or SSH
 
-$ npm install
+```bash
+git clone git@github.com:minhhoccode111/basic-information-site-top.git/
+```
 
-$ npm start
-
-And follow this link in your browser:
+```bash
+cd basic-information-site-top
+npm install
+npm start
 ```
 
 ## **Navigation**
