@@ -4,41 +4,29 @@ const app = express();
 
 const port = 8080;
 
-app.get('/', (req, res) => {
-  fs.readFile('src/index.html', 'utf8', (err, data) => {
-    res.status(200).send(data);
+const sendFile = (filepath, res, status = 200) =>
+  fs.readFile(filepath, 'utf8', (err, data) => {
+    // handle server error
+    if (err) res.status(500).send('Server broken');
+    // server files
+    else res.status(status).send(data);
   });
-});
 
-app.get('/about', (req, res) => {
-  fs.readFile('src/about.html', 'utf8', (err, data) => {
-    res.status(200).send(data);
-  });
-});
+// handle index
+app.get('/', (req, res) => sendFile('src/index.html', res));
 
-app.get('/about-me', (req, res) => {
-  fs.readFile('src/about.html', 'utf8', (err, data) => {
-    res.status(200).send(data);
-  });
-});
+// handle about
+app.get('/about', (req, res) => sendFile('src/about.html', res));
 
-app.get('/about-us', (req, res) => {
-  fs.readFile('src/about.html', 'utf8', (err, data) => {
-    res.status(200).send(data);
-  });
-});
+app.get('/about-me', (req, res) => sendFile('src/about.html', res));
 
-app.get('/contact', (req, res) => {
-  fs.readFile('src/contact.html', 'utf8', (err, data) => {
-    res.status(200).send(data);
-  });
-});
+app.get('/about-us', (req, res) => sendFile('src/about.html', res));
 
-app.get('*', (req, res) => {
-  fs.readFile('src/404.html', 'utf8', (err, data) => {
-    res.status(404).send(data);
-  });
-});
+// handle contact
+app.get('/contact', (req, res) => sendFile('src/contact.html', res));
+
+// handle 404
+app.get('*', (req, res) => sendFile('src/404.html', res, 404));
 
 app.listen(port, () => {
   console.log('listen on port: ' + port);
