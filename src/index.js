@@ -1,28 +1,45 @@
-const http = require('node:http');
-const fs = require('node:fs');
+const fs = require('fs');
+const express = require('express');
+const app = express();
 
-http
-  .createServer((req, res) => {
-    let filepath = '';
-    if (req.url === '/') filepath = 'src/index.html';
-    else if (req.url === '/about') filepath = 'src/about.html';
-    else if (req.url === '/contact') filepath = 'src/contact.html';
-    else filepath = 'src/404.html';
+const port = 8080;
 
-    fs.readFile(filepath, 'utf8', (err, data) => {
-      // server error can't read files
-      if (err) {
-        res.statusCode = 500;
-        return res.end('Error landing page');
-      }
-      // not found 404
-      if (filepath === 'src/404.html') res.writeHead(404, { 'Content-Type': 'text/html' });
-      // other routes
-      else res.writeHead(200, { 'Content-Type': 'text/html' });
+app.get('/', (req, res) => {
+  fs.readFile('src/index.html', 'utf8', (err, data) => {
+    res.status(200).send(data);
+  });
+});
 
-      // response
-      res.write(data);
-      return res.end();
-    });
-  })
-  .listen(8080, () => console.log(`Listen on port: 8080`));
+app.get('/about', (req, res) => {
+  fs.readFile('src/about.html', 'utf8', (err, data) => {
+    res.status(200).send(data);
+  });
+});
+
+app.get('/about-me', (req, res) => {
+  fs.readFile('src/about.html', 'utf8', (err, data) => {
+    res.status(200).send(data);
+  });
+});
+
+app.get('/about-us', (req, res) => {
+  fs.readFile('src/about.html', 'utf8', (err, data) => {
+    res.status(200).send(data);
+  });
+});
+
+app.get('/contact', (req, res) => {
+  fs.readFile('src/contact.html', 'utf8', (err, data) => {
+    res.status(200).send(data);
+  });
+});
+
+app.get('*', (req, res) => {
+  fs.readFile('src/404.html', 'utf8', (err, data) => {
+    res.status(404).send(data);
+  });
+});
+
+app.listen(port, () => {
+  console.log('listen on port: ' + port);
+});
