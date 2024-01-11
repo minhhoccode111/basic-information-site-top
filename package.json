@@ -2,14 +2,15 @@
   "name": "basic-information-site-top",
   "version": "1.0.0",
   "description": "Basic Information Site The Odin Project",
-  "main": "src/index.js",
+  "main": "index.js",
   "dependencies": {
     "bun-types": "^1.0.18",
     "express": "^4.18.2",
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon index.js",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/minhhoccode111/basic-information-site-top/issues"
   },
-  "homepage": "https://github.com/minhhoccode111/basic-information-site-top#readme"
+  "homepage": "https://github.com/minhhoccode111/basic-information-site-top#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
 }
